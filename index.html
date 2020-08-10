@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="author" content="Mor Fall Diop">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!--<link rel="icon" href="img/icon.ico" type="image/x-icon">-->
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<link rel="stylesheet" href="css/style.css">
+		<title>Weatheria</title>
+	</head>
+	<body>
+		<nav class="nav-custom navbar navbar-expand-lg navbar-light bg-light fixed-top">
+			<a class="navbar-brand" href="index.html">Weather.com</a><!-- home potesse essere l'immagine di logo -->
+			<!-- barra di ricerca inizialmente nascosta, appare dopo che è stata avviata la ricerca da home -->
+			<form class="city-input"><!-- after search, moves here -->
+				<input type="text" class="search-input" placeholder="Search city">
+				<button class="search-btn" type="button"><i class="material-icons">gps_fixed</i></button>
+				<button class="gps-btn" type="button"><i class="material-icons">search</i></button>
+			</form>
+			<i class="material-icons menu">menu</i>
+			<i class="material-icons menu">close</i>
+		</nav>
+		<div class="page">
+			<section class="search"><!-- weather image in background -->
+				<!-- search bar (disappears) -->
+				<h1 class="title"><a href="index.html">Weather.com</a></h1>
+				<p>Nasonia's weather web site</p>
+				<form class="city-input">
+					<input type="text" class="search-input" placeholder="Search city">
+					<button class="search-btn" type="button"><i class="material-icons">gps_fixed</i></button>
+					<button class="gps-btn" type="button"><i class="material-icons">search</i></button>
+				</form>
+				<div class="saved-cities">
+					<!-- to be added dynamically -->
+				</div>		
+			</section>
+			<section class="results">
+				<!-- last update hour and day -->
+				<div>Villongo, Lombardy, Italy. Last update: 2.29 PM on March 12, 2020 new Date()</div>
+				<section class="weather-now">
+					<!-- current weather conditions: degrees, max/min/feels like, weather-->
+					<div id="degrees">12°C</div>
+					<div class="degrees-details">
+						<p id="max">Max: 15</p>
+						<p id="min">Min: 7</p>
+						<p id="feels-like">Feels like: 11</p>
+					</div>
+					<div id="weather">Sunny</div>
+				</section>
+				<section class="forecasts">
+					<!-- weather forecasts for the next hours/days -->
+					<div class="links">
+						<a>TODAY</a>
+						<a>NEXT HOURS</a>
+						<a>NEXT DAYS</a>
+					</div>
+					<div class="forecast-data">
+						<div class="today">
+							<!-- 4 cards (morning, afternoon, evening, night) -->
+						</div>
+						<div class="next-hours">
+							<!-- 5 cards for each hour (or 3-hour) -->
+						</div>
+						<div class="next-days">
+							<!-- 5 cards for each day (starting by today) -->
+						</div>
+					</div>
+				</section>
+				<section class="details">
+					<!-- other infos, each one in a div -->
+					<div class="sun"></div>
+					<div class="wind"></div>
+					<div class="pression"></div>
+					<div class="humidity"></div>
+					<div class="visibility"></div>
+					<div class="geographics"></div>
+				</section>
+			</section>
+		</div>
+		<script type="module" src="dist/main.js"></script>
+	</body>
+</html>
