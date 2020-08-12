@@ -7,4 +7,4 @@ function component() {
 }
 
 document.body.appendChild(component()); */
-console.log(process.env.API-KEY);
+alert("Funz");

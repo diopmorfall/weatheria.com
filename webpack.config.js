@@ -13,6 +13,6 @@ module.exports = {
     ],
     output: {
         filename: 'main.js', // bundle, the HTML loads this script
-        path: path.resolve(__dirname, 'dist'),
+        path: path.resolve(__dirname, 'dist')
     }
 }
