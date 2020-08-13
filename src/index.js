@@ -7,4 +7,3 @@ function component() {
 }
 
 document.body.appendChild(component()); */
-alert("Funz");
