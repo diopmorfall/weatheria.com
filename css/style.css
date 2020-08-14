@@ -44,31 +44,33 @@ nav > .city-input{
 .title{
     position: relative;
     margin: 0;
-    top: 35%;
+    top: 30%;
     font-size: 3.5vw;
 }
 .city-input{
     position: relative;
-    top: 40%;
-    left: 25%;
-    width: 55%;
+    top: 42%;
+    align-self: center;
+    width: 38.5%;
     height: 8%;
     display: flex;
     flex-direction: row;
+    border-radius: 15px;
 }
 .search-input{
     width: 100%;
-    border-radius: 5px;
+    border-radius: 15px;
 }
 .search-btn, .gps-btn{
-    width: 10%;
+    width: 8.5%;
     border: none;
+    background: none;
     border-radius: 15px;
     text-align: center;
     margin-left: 1%;
 }
-.city-input > .material-icons{
-    font-size: 2.5vw;
+.search-btn > img, .gps-btn > img{
+    width: 80%;
 }
 .results{
     height: 120vh;

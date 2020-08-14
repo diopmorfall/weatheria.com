@@ -7,3 +7,10 @@ function component() {
 }
 
 document.body.appendChild(component()); */
+
+// creation of elements and animations of the site
+
+// chance to save favourite cities, and see their forecast directly
+
+// background color based on hour/season/weather
+
