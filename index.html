@@ -13,11 +13,10 @@
 	<body>
 		<nav class="nav-custom navbar navbar-expand-lg navbar-light bg-light fixed-top">
 			<a class="navbar-brand" href="index.html">Weather.com</a><!-- home potesse essere l'immagine di logo -->
-			<!-- barra di ricerca inizialmente nascosta, appare dopo che è stata avviata la ricerca da home -->
-			<form class="city-input" method="POST"><!-- after search, moves here -->
+			<form class="city-input" name="form" method="POST" action="/"><!-- after search in homepage, it moves here -->
 				<input type="text" class="search-input" placeholder="Search city">
-				<button class="search-btn" type="button"><i class="material-icons">gps_fixed</i></button>
-				<button class="gps-btn" type="button"><i class="material-icons">search</i></button>
+				<button class="gps-btn" type="submit"><img src="images/gps.svg"></button>
+				<button class="search-btn" type="submit"><img src="images/search.svg"></button>
 			</form>
 			<i class="material-icons menu">menu</i>
 			<i class="material-icons menu">close</i>
@@ -26,10 +25,10 @@
 			<section class="search"><!-- weather image in background -->
 				<!-- search bar (disappears) -->
 				<h1 class="title"><a href="index.html">Weather.com</a></h1>
-				<form class="city-input" method="POST">
+				<form class="city-input" name="form" method="POST"><!-- after search in homepage, it moves here -->
 					<input type="text" class="search-input" placeholder="Search city">
-					<button class="search-btn" type="button"><img src="images/gps.svg"></button>
-					<button class="gps-btn" type="button"><img src="images/search.svg"></button>
+					<button class="gps-btn" type="submit"><img src="images/gps.svg"></button>
+					<button class="search-btn" type="submit"><img src="images/search.svg"></button>
 				</form>
 				<div class="saved-cities">
 					<!-- to be added dynamically -->
@@ -79,6 +78,6 @@
 				</section>
 			</section>
 		</div>
-		<script src="dist/main.js"></script>
+		<script src="src/index.js"></script>
 	</body>
 </html>
