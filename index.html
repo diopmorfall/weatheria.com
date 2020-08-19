@@ -13,9 +13,9 @@
 	<body>
 		<nav class="nav-custom navbar navbar-expand-lg navbar-light bg-light fixed-top">
 			<a class="navbar-brand" href="index.html">Weather.com</a><!-- home potesse essere l'immagine di logo -->
-			<form class="city-input" name="form" method="POST" action="/"><!-- after search in homepage, it moves here -->
-				<input type="text" class="search-input" placeholder="Search city">
-				<button class="gps-btn" type="submit"><img src="images/gps.svg"></button>
+			<form class="nav-city-input disabled" name="form" action="/"><!-- after search in homepage, it moves here -->
+				<input type="text" class="search-input" placeholder="Search city" autofocus>
+				<button class="gps-btn" type="button"><img src="images/gps.svg"></button>
 				<button class="search-btn" type="submit"><img src="images/search.svg"></button>
 			</form>
 			<i class="material-icons menu">menu</i>
@@ -25,9 +25,9 @@
 			<section class="search"><!-- weather image in background -->
 				<!-- search bar (disappears) -->
 				<h1 class="title"><a href="index.html">Weather.com</a></h1>
-				<form class="city-input" name="form" method="POST"><!-- after search in homepage, it moves here -->
-					<input type="text" class="search-input" placeholder="Search city">
-					<button class="gps-btn" type="submit"><img src="images/gps.svg"></button>
+				<form class="home-city-input" name="form" action="/"><!-- after search in homepage, it moves here -->
+					<input type="text" class="search-input" placeholder="Search city" autofocus>
+					<button class="gps-btn" type="button"><img src="images/gps.svg"></button>
 					<button class="search-btn" type="submit"><img src="images/search.svg"></button>
 				</form>
 				<div class="saved-cities">
@@ -78,6 +78,6 @@
 				</section>
 			</section>
 		</div>
-		<script src="src/index.js"></script>
+		<script src="src/index.js" defer></script>
 	</body>
 </html>

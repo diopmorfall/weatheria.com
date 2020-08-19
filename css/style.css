@@ -19,13 +19,18 @@
 .menu:last-of-type{
     display: none;
 }
-nav > .city-input{
+.nav-city-input{
     position: absolute;
     top: 25%;
-    left: 25%;
-    width: 50%;
+    left: 30%;
+    width: 40%;
     height: 55%;
-    display: none;
+    display: flex;
+    flex-direction: row;
+}
+.nav-city-input > .search-btn > img, .nav-city-input > .gps-btn > img{
+    width: 70%;
+    margin-left: 0;
 }
 .page{
     position: absolute;
@@ -47,29 +52,35 @@ nav > .city-input{
     top: 30%;
     font-size: 3.5vw;
 }
-.city-input{
+.home-city-input{
     position: relative;
     top: 42%;
     align-self: center;
     width: 38.5%;
     height: 8%;
+    border-radius: 15px;
     display: flex;
     flex-direction: row;
-    border-radius: 15px;
+}
+.disabled{
+    display: none;
 }
 .search-input{
-    width: 100%;
-    border-radius: 15px;
+    width: 80%;
+    background-color: bisque;
+    border-radius: 18px;
+    border: none;
+}
+.search-input:focus, .search-btn:focus, .gps-btn:focus{
+    outline: none;
 }
 .search-btn, .gps-btn{
-    width: 8.5%;
+    width: 7%;
     border: none;
     background: none;
-    border-radius: 15px;
     text-align: center;
-    margin-left: 1%;
 }
-.search-btn > img, .gps-btn > img{
+.home-city-input > .search-btn > img, .home-city-input > .gps-btn > img{
     width: 80%;
 }
 .results{

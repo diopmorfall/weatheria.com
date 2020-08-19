@@ -1,43 +1,57 @@
-/* import _ from 'lodash'; // this file depends on this dependency to be included in the page before it loads
-// it isn't immediatly apparent, that's a problem. Added with npm install --save lodash (bundling)
-function component() {
-    const element = document.createElement('div');
-    element.innerHTML = _.join(['Hello', 'webpack'], ' '); // lodash allows to run this line
-    return element;
-}
-
-document.body.appendChild(component()); */
+/*
+    import function search
+    import  function searchWithGeolocalization
+*/
 
 // handling the various elements
 
 const forms = document.getElementsByName("form");
-const geoButton = document.querySelectorAll(".gps-btn");
-const searchButton = document.querySelectorAll(".search-btn");
-const input = document.querySelectorAll(".search-input");
+const geoButtons = document.querySelectorAll(".gps-btn");
+const searchButtons = document.querySelectorAll(".search-btn");
+const inputFields = document.querySelectorAll(".search-input");
+const queryResults = document.querySelector(".results");
 
+// assigning the event listeners to every form and button
 
-for (let i = 0; i < forms.length; i++) {
-    const form = forms[i];
-    form.addEventListener('submit', function (event) {
-        event.preventDefault();
-        document.querySelector(".results").firstElementChild.innerHTML = "";
-        document.querySelector(".results").firstElementChild.innerHTML = forms[i].firstElementChild.value;
-    });
-}
-for (let i = 0; i < searchButton.length; i++) {
-    const geo = geoButton[i];
-    const search = searchButton[i];
-    geo.addEventListener('click', function(event){
-        event.preventDefault();
-        // function that finds the coordinates, and posts the matching city
-        console.log(geoButton[i].innerHTML);
-    });
-    search.addEventListener('click', function(event){
-        event.preventDefault();
+window.onload = function() {
+    for (let i = 0; i < forms.length; i++) { // i=0: elements in navbar form; i=1: elements in homepage form
+        if(!forms[i].classList.contains('disabled')) {
+            forms[i].addEventListener('submit', function(event) {
+                event.preventDefault();
+                queryResults.firstElementChild.innerHTML = inputFields[i].value;
+                /*  function in weather.js that takes the input, processes it with the API and prints it
+                    
+                */
+            });
+        }
+    }
+};
+
+    
+
+   /*  searchButtons[i].addEventListener('click', function(event) {
         // function that posts the input
-        console.log(this.parentNode);
-        search.parentNode.dispatchEvent("submit");
+        // queryResults.firstElementChild.innerHTML = inputFields[1].value;
     });
+
+    geoButtons[i].addEventListener('click', function(event){
+        // function that finds the coordinates, and posts the matching city
+    }); */
+
+
+/* for (let i = 0; i < searchButtons.length; i++) {
+    const search = searchButtons[i]; 
+    search.addEventListener('click', function(event) {
+        // function that posts the input
+    });
+
+    const geo = geoButtons[i];
+    geo.addEventListener('click', function(event){
+        // function that finds the coordinates, and posts the matching city
+    });
+} */
+function inputTextSearch() {
+    
 }
 
 // creation of elements and animations of the site
