@@ -1,7 +1,6 @@
-/*
-    import function search
-    import  function searchWithGeolocalization
+/*   import  function searchWithGeolocalization
 */
+import { textInputSearch } from "./weather";
 
 // handling the various elements
 
@@ -18,9 +17,9 @@ window.onload = function() {
         if(!forms[i].classList.contains('disabled')) {
             forms[i].addEventListener('submit', function(event) {
                 event.preventDefault();
-                queryResults.firstElementChild.innerHTML = inputFields[i].value;
+                queryResults.firstElementChild.innerHTML = textInputSearch(inputFields[i].value);
                 /*  function in weather.js that takes the input, processes it with the API and prints it
-                    
+                    textInputSearch(inputFields[i].value)
                 */
             });
         }

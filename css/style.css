@@ -27,6 +27,9 @@
     height: 55%;
     display: flex;
     flex-direction: row;
+    border: 1px solid black;
+    border-radius: 18px;
+    background-color: #c3f5ab;
 }
 .nav-city-input > .search-btn > img, .nav-city-input > .gps-btn > img{
     width: 70%;
@@ -58,30 +61,37 @@
     align-self: center;
     width: 38.5%;
     height: 8%;
-    border-radius: 15px;
+    border: 1px solid black;
+    border-radius: 18px;
     display: flex;
     flex-direction: row;
+    background-color: #c3f5ab;
 }
 .disabled{
     display: none;
 }
 .search-input{
-    width: 80%;
-    background-color: bisque;
+    width: 85%;
     border-radius: 18px;
     border: none;
+    background-color: #c3f5ab;
 }
 .search-input:focus, .search-btn:focus, .gps-btn:focus{
     outline: none;
+    background-color: #98eb72;
 }
 .search-btn, .gps-btn{
-    width: 7%;
+    width: 7.5%;
     border: none;
+    border-radius: 18px;
     background: none;
     text-align: center;
 }
+.search-btn:hover, .gps-btn:hover{
+    background-color: #98eb72;
+}
 .home-city-input > .search-btn > img, .home-city-input > .gps-btn > img{
-    width: 80%;
+    width: 75%;
 }
 .results{
     height: 120vh;
