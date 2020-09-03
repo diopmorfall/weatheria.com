@@ -1,14 +1,15 @@
 /*   import  function searchWithGeolocalization
 */
-import { textInputSearch } from "./weather";
+import moment from "moment";
+import { gpsSearch } from "./geographics";
 
 // handling the various elements
 
 const forms = document.getElementsByName("form");
-const geoButtons = document.querySelectorAll(".gps-btn");
+const gpsButtons = document.querySelectorAll(".gps-btn");
 const searchButtons = document.querySelectorAll(".search-btn");
 const inputFields = document.querySelectorAll(".search-input");
-const queryResults = document.querySelector(".results");
+const queryOutputElement = document.getElementById("query"); 
 
 // assigning the event listeners to every form and button
 
@@ -17,41 +18,33 @@ window.onload = function() {
         if(!forms[i].classList.contains('disabled')) {
             forms[i].addEventListener('submit', function(event) {
                 event.preventDefault();
-                queryResults.firstElementChild.innerHTML = textInputSearch(inputFields[i].value);
-                /*  function in weather.js that takes the input, processes it with the API and prints it
-                    textInputSearch(inputFields[i].value)
-                */
+                printQuery(inputFields[i].value);
+                // function in weather.js that takes the input, processes it with the API and prints it
+            });
+
+            // function that obtains the geolocalization
+            gpsButtons[i].addEventListener('click', function(event){
+                event.preventDefault();
+                gpsSearch();
             });
         }
     }
 };
 
-    
+// function that formats the time of the search with Moment.js library
 
-   /*  searchButtons[i].addEventListener('click', function(event) {
-        // function that posts the input
-        // queryResults.firstElementChild.innerHTML = inputFields[1].value;
-    });
-
-    geoButtons[i].addEventListener('click', function(event){
-        // function that finds the coordinates, and posts the matching city
-    }); */
-
-
-/* for (let i = 0; i < searchButtons.length; i++) {
-    const search = searchButtons[i]; 
-    search.addEventListener('click', function(event) {
-        // function that posts the input
-    });
-
-    const geo = geoButtons[i];
-    geo.addEventListener('click', function(event){
-        // function that finds the coordinates, and posts the matching city
-    });
-} */
-function inputTextSearch() {
-    
+function searchTime() {
+    let date = moment().format("dddd, MMMM Do YYYY");
+    let time = moment().format("HH:mm:ss");
+    return "Last update in " + date + " at "+ time + ". GMT "+ moment().format("Z");
 }
+
+// function that takes the data from the text input and prints it
+
+export function printQuery(input) {
+    return queryOutputElement.innerHTML =  "Weather in " + input + ". " + searchTime();
+}
+
 
 // creation of elements and animations of the site
 
