@@ -1,7 +1,7 @@
 /*   import  function searchWithGeolocalization
 */
 import moment from "moment";
-import { gpsSearch } from "./geographics";
+import { getInputCoordinates, getUserCoordinates } from "./geographics";
 
 // handling the various elements
 
@@ -18,14 +18,19 @@ window.onload = function() {
         if(!forms[i].classList.contains('disabled')) {
             forms[i].addEventListener('submit', function(event) {
                 event.preventDefault();
+                getInputCoordinates(inputFields[i].value);
                 printQuery(inputFields[i].value);
-                // function in weather.js that takes the input, processes it with the API and prints it
             });
 
-            // function that obtains the geolocalization
+            inputFields[i].addEventListener('input', function(event) {
+                event.preventDefault();
+                //console.log(inputFields[i].value);
+            });
+
             gpsButtons[i].addEventListener('click', function(event){
                 event.preventDefault();
-                gpsSearch();
+                //inputFields[i].value = "";
+                getUserCoordinates();
             });
         }
     }
@@ -39,7 +44,7 @@ function searchTime() {
     return "Last update in " + date + " at "+ time + ". GMT "+ moment().format("Z");
 }
 
-// function that takes the data from the text input and prints it
+// function that takes the query inserted in the <input>, or the one calculated with geolocation; then it prints it
 
 export function printQuery(input) {
     return queryOutputElement.innerHTML =  "Weather in " + input + ". " + searchTime();
