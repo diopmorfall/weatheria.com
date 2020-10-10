@@ -13,32 +13,20 @@
 	<body>
 		<nav class="nav-custom navbar navbar-expand-lg navbar-light bg-light fixed-top">
 			<a class="navbar-brand" href="index.html">Weather.com</a><!-- home potesse essere l'immagine di logo -->
-			<form class="nav-city-input disabled" name="form" action="/"><!-- after search in homepage, it moves here -->
-				<input type="text" class="search-input" placeholder="Search city" autofocus>
-				<button class="gps-btn" type="button"><img src="images/gps.svg"></button>
-				<button class="search-btn" type="submit"><img src="images/search.svg"></button>
-			</form>
-			<i class="material-icons menu">menu</i>
-			<i class="material-icons menu">close</i>
 		</nav>
 		<div class="page">
-			<section class="search"><!-- weather image in background -->
-				<!-- search bar (disappears) -->
+			<section id="search"><!-- weather image in background -->
 				<h1 class="title"><a href="index.html">Weather.com</a></h1>
-				<form class="home-city-input" name="form" action="/"><!-- after search in homepage, it moves here -->
+				<form class="city-input" name="form" action="/">
 					<input type="text" class="search-input" placeholder="Search city" autofocus>
-					<button class="gps-btn" type="button"><img src="images/gps.svg"></button>
-					<button class="search-btn" type="submit"><img src="images/search.svg"></button>
+					<button class="gps-btn" type="button"><i class="material-icons">gps_fixed</i></button>
+					<button class="search-btn" type="submit"><i class="material-icons">search</i></button>
 					<div id="city-suggestions"></div>
-				</form>
-				<div class="saved-cities">
-					<!-- to be added dynamically -->
-					
-				</div>		
+				</form>		
 			</section>
 			<section class="results">
 				<!-- last update hour and day -->
-				<div id="query"></div>
+				<h6 id="query"></h6>
 				<section class="weather-now">
 					<!-- current weather conditions: degrees, max/min/feels like, weather-->
 					<div id="degrees">12°C</div>
@@ -51,31 +39,32 @@
 				</section>
 				<section class="forecasts">
 					<!-- weather forecasts for the next hours/days -->
-					<div class="links">
-						<a>TODAY</a>
-						<a>NEXT HOURS</a>
-						<a>NEXT DAYS</a>
+					<div class="fore-selectors">
+						<a>Today</a> <!-- 4 cards (morning, afternoon, evening, night) -->
+						<a>Next Hours</a> <!-- 5 cards for each hour from now -->
+						<a>Next Days</a> <!-- 5 cards for each day from today -->
 					</div>
 					<div class="forecast-data">
-						<div class="today">
-							<!-- 4 cards (morning, afternoon, evening, night) -->
-						</div>
-						<div class="next-hours">
-							<!-- 5 cards for each hour (or 3-hour) -->
-						</div>
-						<div class="next-days">
-							<!-- 5 cards for each day (starting by today) -->
-						</div>
+						<div class="fore-card"></div> <!-- always shown, only the data changes. Mobile must be scrollable laterally -->
+						<div class="fore-card"></div>
+						<div class="fore-card"></div>
+						<div class="fore-card"></div>
 					</div>
 				</section>
 				<section class="details">
+					<div class="details-heading">
+						<span>More Weather Details</span>
+						<button id="details-btn" type="button"><i class="material-icons">keyboard_arrow_down</i></button>
+					</div>
 					<!-- other infos, each one in a div -->
-					<div class="sun"></div>
-					<div class="wind"></div>
-					<div class="pression"></div>
-					<div class="humidity"></div>
-					<div class="visibility"></div>
-					<div class="geographics"></div>
+					<div id="details-data">
+						<div class="det-card">Sunrise, sunset, light hours (bezier curve)</div>
+						<div class="det-card">Wind comes from, speed</div>
+						<div class="det-card">hPa</div>
+						<div class="det-card">Humidity</div>
+						<div class="det-card">Visibility in km</div>
+						<div class="det-card">Local Hour (GMT), Latitude, Longitude, Coordinates, Height slm</div>
+					</div>
 				</section>
 			</section>
 		</div>

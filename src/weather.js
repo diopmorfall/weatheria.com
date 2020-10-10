@@ -2,11 +2,12 @@
 
 import { queryUrlBuilder } from "./geographics";
 
-const weatherKey = process.env.OWM_KEY;
+const weatherKey = process.env.OWMKEY2;
 let url = "https://api.openweathermap.org/data/2.5/onecall?";
+let url2 = "https://api.openweathermap.org/data/2.5/forecast?";
 
 export async function getCityWeather(lat, lon) {
-    let query = "lat=" + lat + "&lon=" + lon + "&exclude=minutely&appid=" + weatherKey;
+    let query = "lat=" + lat + "&lon=" + lon + "&appid=" + weatherKey;
     console.log(queryUrlBuilder(url, query));
 
     fetch(queryUrlBuilder(url, query))

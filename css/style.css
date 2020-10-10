@@ -1,5 +1,7 @@
 *{
     box-sizing: border-box;
+    font-style: italic;
+    text-align: center;
 }
 .nav-custom{
     width: 100%;
@@ -12,29 +14,6 @@
     position: absolute;
     left: 5%;
 }
-.menu{
-    position: absolute;
-    right: 4%;
-}
-.menu:last-of-type{
-    display: none;
-}
-.nav-city-input{
-    position: absolute;
-    top: 25%;
-    left: 30%;
-    width: 40%;
-    height: 55%;
-    display: flex;
-    flex-direction: row;
-    border: 1px solid black;
-    border-radius: 18px;
-    background-color: #c3f5ab;
-}
-.nav-city-input > .search-btn > img, .nav-city-input > .gps-btn > img{
-    width: 70%;
-    margin-left: 0;
-}
 .page{
     position: absolute;
     width: 100vw;
@@ -42,38 +21,38 @@
     display: flex;
     flex-direction: column;
 }
-.search{
-    height: 60vh;
-    border: 2px solid red;
+#search{
+    height: 40vh;
+    /*border: 2px solid red;*/
     display: flex;
     flex-direction: column;
-    text-align: center;
 }
 .title{
     position: relative;
     margin: 0;
-    top: 30%;
-    font-size: 3.5vw;
+    top: 20%;
+    font-size: 3vw;
 }
-.home-city-input{
+.title > a:hover {
+    text-decoration: none;
+}
+.city-input{
     position: relative;
-    top: 42%;
+    top: 40%;
     align-self: center;
-    width: 38.5%;
-    height: 8%;
-    border: 1px solid black;
-    border-radius: 18px;
+    width: 36%;
+    height: 9.2%;
+    /* border: 1px solid black; */
+    border: none;
+    border-radius: 10px;
     display: flex;
     flex-direction: row;
     background-color: #c3f5ab;
 }
-.disabled{
-    display: none;
-}
 .search-input{
     width: 85%;
-    border-radius: 18px;
     border: none;
+    border-radius: 10px;
     background-color: #c3f5ab;
 }
 .search-input:focus, .search-btn:focus, .gps-btn:focus{
@@ -83,24 +62,20 @@
 .search-btn, .gps-btn{
     width: 7.5%;
     border: none;
-    border-radius: 18px;
+    border-radius: 10px;
     background: none;
-    text-align: center;
 }
 .search-btn:hover, .gps-btn:hover{
     background-color: #98eb72;
 }
-.home-city-input > .search-btn > img, .home-city-input > .gps-btn > img{
-    width: 75%;
-}
 .results{
-    height: 120vh;
-    border: 3px solid green;
+    height: 100vh;
+    /*border: 3px solid green;*/
     display: flex;
     flex-direction: column;
 }
 .weather-now{
-    height: 27%;
+    height: 20%;
     border: 2px solid violet;
     display: flex;
     flex-direction: row;
@@ -108,60 +83,90 @@
 .weather-now > div{
     border: 1px dotted violet;
     width: 33.3%;
-    text-align: center;
 }
 .degrees-details{
     display: flex;
     flex-direction: column;
 }
 .degrees-details > p:first-child{
-    margin-top: 8%;
+    margin-top: 2%;
 }
 .forecasts{
+    margin: 1.5% 0 1.5% 0;
     height: 45%;
-    border: 1px solid blue;
+    border: 2px solid orange;
     display: flex;
     flex-direction: column;
 }
-.links{
+.fore-selectors{
     width: 100%;
     height: 10%;
     display: flex;
     flex-direction: row;
-    border: 2px dotted blue;
 }
-.links > a{
+.fore-selectors > a{
     width: 33.3%;
-    border: 1px dotted orange;
-    text-align: center;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.fore-selectors > a:hover{
+    cursor: pointer;
 }
 .forecast-data{
-    border: 2px solid magenta;
+    /* border: 2px solid magenta; */
     height: 90%;
     display: flex;
     flex-direction: row;
 }
-.forecast-data > div{
-    position: relative;
-    top: 5%;
-    width: 20%;
-    height: 90%;
-    border: 1px dotted yellowgreen;
-    border-radius: 10%;
-    margin-left: 2%;
-}
-.details{
-    height: 27%;
-    border: 2px solid black;
-    display: flex;
-    flex-direction: row;
-}
-.details > div{
+.fore-card{
     position: relative;
     top: 5%;
     width: 15%;
     height: 90%;
+    border: 1px dotted orange;
+    border-radius: 10%;
+    margin-left: 2%;
+}
+.details{
+    height: 35%;
+    border: 2px solid blue;
+    display: flex;
+    flex-direction: column;
+}
+.details-heading {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#details-btn{
+    position: relative;
+    margin-left: 1%;
+    width: 2%;
+    border: none;
+    border-radius: 20px;
+    background: none;
+}
+#details-btn:focus {
+    outline: none;
+}
+.rotated {
+    transform: rotate(180deg);
+}
+#details-data{
+    height: 80%;
+    /*border: 2px solid yellow;*/
+    display: none;
+    flex-direction: row;
+}
+.det-card{
+    position: relative;
+    top: 5%;
+    width: 15%;
+    height: 80%;
     border: 1px dotted blue;
     border-radius: 10%;
     margin-left: 1.5%;
+}
+.disabled{
+    display: none;
 }

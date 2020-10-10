@@ -12,29 +12,38 @@ export function queryUrlBuilder (url, query) {
     return finalUrl;
 }
 
-export function getUserCoordinates() { // function that obtains the geolocation coordinates of the user
+export function getUsersGeolocation() { // function that obtains the geolocation coordinates of the user
     let position = navigator.geolocation;
-    position.getCurrentPosition(function (position) {
-        let lat = position.coords.latitude;
-        let lon = position.coords.longitude;
-        // console.log(lat +", "+ lon);
-        getUserLocation(lat, lon);
-        //getCityWeather(lat, lon);
+    let lat, lon;
+    let options = {
+        enableHighAccuracy: false,
+        timeout: 5000,
+        maximumAge: 0
+    };
+    
+    position.getCurrentPosition(function(position) {
+        lat = position.coords.latitude;
+        lon = position.coords.longitude;
+        console.log(lat +", "+ lon);
+        console.log(position.coords.accuracy);
+        getCityWithCoordinates(lat, lon);
+        //getCityWeather(lat, lng);
         // coordinates that have to be passed to the weather API
     }, function(error) {
         console.warn(error.message);
-    });    
+    }, options);    
 }
 
 // reverse geolocation with the coordinates (it gets the geographic infos)
 
-async function getUserLocation(lat, lon) {
+async function getCityWithCoordinates(lat, lon) {
     let query = lat + "+" + lon + "&key=" + geoKey + "language=en";
     fetch(queryUrlBuilder(url, query))
     .then(response => response.json())
     .then(data => {
         let results = data.results[0].components;
-        let city = results.village;
+        console.log(results);
+        let city = results.city;
         let state = results.state;
         let country = results.country;
         printQuery(city + ", " + state + ", " + country);
@@ -42,15 +51,15 @@ async function getUserLocation(lat, lon) {
     .catch(error => console.warn(error));
 }
 
-// function that returns lat and lon from user's input
+// function that returns lat and lng from user's input
 
 export async function getInputCoordinates(input) {
-    let query = input.replace(/ /g, "+") + "&key=" + geoKey + "language=en";
+    let query = input.replace(/ /g, "+") + "&key=" + geoKey + "&language=en&limit=1";
     
     fetch(queryUrlBuilder(url, query))
     .then(response => response.json())
     .then(data => {
-        resultsFilter(data, input);
+        searchResultsFilter(data, input);
     })
     .catch(error => console.warn(error));
     // coordinates that have to be passed to the weather API
@@ -58,19 +67,30 @@ export async function getInputCoordinates(input) {
 
 // how to filter each result ? City and type fields in array response
 
-function resultsFilter(data, input) {
+function searchResultsFilter(data, input) {
     let results = data.results;
-    let formatted, type, category, city;
+    let type, category, city, country, formatted, lat, lon;
     for(let i = 0; i < results.length; i++) {
-        formatted = results[i].formatted;
         type = results[i].components._type;
         category = results[i].components._category;
         city = results[i].components.city;
-        //if((formatted.search(/input/i) && type == "city") || (formatted.search(/input/i) && category == "place")) {   
-        if (input.search(/city/i) && category == "place") {    
-            console.log(results[i]);
+        country = results[i].components.country;
+        formatted = results[i].formatted;
+        if(city) {
+            //console.log(typeof city + ". " + city);
+            //console.log(results[i]);
+            printQuery(city + ", " + country);
+        } else if (input.search(/city/i) && category == "place") {
+            //console.log(results[i]);
+            printQuery(formatted);
         }
+
+        lat = results[i].geometry.lat;
+        lon = results[i].geometry.lng;
+        //console.log(lat +", "+ lon);
+        getCityWeather(lat, lon);
     }
 }
+
 
 // output of the data in dynamic elements
