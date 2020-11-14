@@ -21,13 +21,13 @@ export function getUsersGeolocation() { // function that obtains the geolocation
         maximumAge: 0
     };
     
-    position.getCurrentPosition(function(position) {
-        lat = position.coords.latitude;
-        lon = position.coords.longitude;
-        console.log(lat +", "+ lon);
-        console.log(position.coords.accuracy);
+    position.getCurrentPosition(function(pos) {
+        lat = pos.coords.latitude;
+        lon = pos.coords.longitude;
+        //console.log(lat +", "+ lon);
+        //console.log(pos.coords.accuracy);
         getCityWithCoordinates(lat, lon);
-        //getCityWeather(lat, lng);
+        getCityWeather(lat, lon);
         // coordinates that have to be passed to the weather API
     }, function(error) {
         console.warn(error.message);
@@ -37,7 +37,7 @@ export function getUsersGeolocation() { // function that obtains the geolocation
 // reverse geolocation with the coordinates (it gets the geographic infos)
 
 async function getCityWithCoordinates(lat, lon) {
-    let query = lat + "+" + lon + "&key=" + geoKey + "language=en";
+    let query = lat + "+" + lon + "&key=" + geoKey + "&language=en";
     fetch(queryUrlBuilder(url, query))
     .then(response => response.json())
     .then(data => {
@@ -54,7 +54,7 @@ async function getCityWithCoordinates(lat, lon) {
 // function that returns lat and lng from user's input
 
 export async function getInputCoordinates(input) {
-    let query = input.replace(/ /g, "+") + "&key=" + geoKey + "&language=en&limit=1";
+    let query = input.replace(/ /g, "%20") + "&key=" + geoKey + "&language=en&limit=1";
     
     fetch(queryUrlBuilder(url, query))
     .then(response => response.json())
@@ -69,19 +69,16 @@ export async function getInputCoordinates(input) {
 
 function searchResultsFilter(data, input) {
     let results = data.results;
-    let type, category, city, country, formatted, lat, lon;
+    let category, city, country, formatted, lat, lon;
+    
     for(let i = 0; i < results.length; i++) {
-        type = results[i].components._type;
         category = results[i].components._category;
         city = results[i].components.city;
         country = results[i].components.country;
         formatted = results[i].formatted;
         if(city) {
-            //console.log(typeof city + ". " + city);
-            //console.log(results[i]);
             printQuery(city + ", " + country);
         } else if (input.search(/city/i) && category == "place") {
-            //console.log(results[i]);
             printQuery(formatted);
         }
 
