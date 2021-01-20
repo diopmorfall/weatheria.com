@@ -1,16 +1,9 @@
-import { printQuery } from "./index";
-import { getCityWeather } from "./weather";
+import { printQuery, queryUrlBuilder } from "./index";
+import { getCityWeather, getTimezone } from "./weather";
 
 // script that processes the geographic stuff 
 const geoKey = process.env.GEO_KEY;
 let url = "https://api.opencagedata.com/geocode/v1/json?q=";
-
-export function queryUrlBuilder (url, query) {
-    let finalUrl = url + query;
-    // console.log(finalUrl);
-    // console.log(finalUrl.length);
-    return finalUrl;
-}
 
 export function getUsersGeolocation() { // function that obtains the geolocation coordinates of the user
     let position = navigator.geolocation;
@@ -24,11 +17,8 @@ export function getUsersGeolocation() { // function that obtains the geolocation
     position.getCurrentPosition(function(pos) {
         lat = pos.coords.latitude;
         lon = pos.coords.longitude;
-        //console.log(lat +", "+ lon);
-        //console.log(pos.coords.accuracy);
-        getCityWithCoordinates(lat, lon);
-        getCityWeather(lat, lon);
-        // coordinates that have to be passed to the weather API
+        getCityFromCoordinates(lat, lon);
+        getCityWeather(lat, lon); // coordinates passed to the weather API
     }, function(error) {
         console.warn(error.message);
     }, options);    
@@ -36,17 +26,23 @@ export function getUsersGeolocation() { // function that obtains the geolocation
 
 // reverse geolocation with the coordinates (it gets the geographic infos)
 
-async function getCityWithCoordinates(lat, lon) {
+async function getCityFromCoordinates(lat, lon) {
     let query = lat + "+" + lon + "&key=" + geoKey + "&language=en";
     fetch(queryUrlBuilder(url, query))
     .then(response => response.json())
     .then(data => {
         let results = data.results[0].components;
-        console.log(results);
+        //console.log(data.results[0].annotations.timezone);
         let city = results.city;
+        let village = results.village;
         let state = results.state;
         let country = results.country;
-        printQuery(city + ", " + state + ", " + country);
+        getTimezone(data.results[0].annotations.timezone.offset_sec);
+        if(city) {
+            printQuery(city + ", " + state + ", " + country);
+        } else if (village) {
+            printQuery(village + ", " + state + ", " + country);
+        }
     })
     .catch(error => console.warn(error));
 }
@@ -59,7 +55,7 @@ export async function getInputCoordinates(input) {
     fetch(queryUrlBuilder(url, query))
     .then(response => response.json())
     .then(data => {
-        searchResultsFilter(data, input);
+        resultsFilter(data, input);
     })
     .catch(error => console.warn(error));
     // coordinates that have to be passed to the weather API
@@ -67,26 +63,28 @@ export async function getInputCoordinates(input) {
 
 // how to filter each result ? City and type fields in array response
 
-function searchResultsFilter(data, input) {
+function resultsFilter(data, input) {
     let results = data.results;
     let category, city, country, formatted, lat, lon;
+    //console.log(data.results[0].annotations.timezone);
     
-    for(let i = 0; i < results.length; i++) {
-        category = results[i].components._category;
-        city = results[i].components.city;
-        country = results[i].components.country;
-        formatted = results[i].formatted;
+    //for(let i = 0; i < results.length; i++) { // api limited to 1 result, so it's not necessary to iterate
+        category = results[0].components._category;
+        city = results[0].components.city;
+        country = results[0].components.country;
+        formatted = results[0].formatted;
+        getTimezone(results[0].annotations.timezone.offset_sec);
         if(city) {
             printQuery(city + ", " + country);
         } else if (input.search(/city/i) && category == "place") {
             printQuery(formatted);
         }
 
-        lat = results[i].geometry.lat;
-        lon = results[i].geometry.lng;
+        lat = results[0].geometry.lat;
+        lon = results[0].geometry.lng;
         //console.log(lat +", "+ lon);
         getCityWeather(lat, lon);
-    }
+    //}
 }
 
 

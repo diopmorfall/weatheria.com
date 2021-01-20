@@ -27,28 +27,36 @@
 			<section class="results">
 				<!-- last update hour and day -->
 				<h6 id="query"></h6>
-				<section class="weather-now">
+				<section class="current">
 					<!-- current weather conditions: degrees, max/min/feels like, weather-->
-					<div id="degrees">12°C</div>
+					<div id="degrees"></div>
 					<div class="degrees-details">
-						<p id="max">Max: 15</p>
-						<p id="min">Min: 7</p>
-						<p id="feels-like">Feels like: 11</p>
+						<p id="max"></p>
+						<p id="min"></p>
+						<p id="feels-like"></p>
 					</div>
-					<div id="weather">Sunny</div>
+					<div id="weather"></div>
 				</section>
 				<section class="forecasts">
 					<!-- weather forecasts for the next hours/days -->
 					<div class="fore-selectors">
-						<a>Today</a> <!-- 4 cards (morning, afternoon, evening, night) -->
-						<a>Next Hours</a> <!-- 5 cards for each hour from now -->
-						<a>Next Days</a> <!-- 5 cards for each day from tomorrow -->
+						<a class="selected">Today</a> <!-- 4 cards (morning, afternoon, evening, night) -->
+						<a class="not-selected">Next Hours</a> <!-- 5 cards for each hour from now -->
+						<a class="not-selected">Next Days</a> <!-- 5 cards for each day from tomorrow -->
 					</div>
 					<div class="forecast-data">
-						<div class="fore-card"></div> <!-- always shown, only the data changes. Mobile must be scrollable laterally -->
-						<div class="fore-card"></div>
-						<div class="fore-card"></div>
-						<div class="fore-card"></div>
+						<div class="fore-card">
+							<br/>
+						</div> <!-- always shown, only the data changes. Mobile must be scrollable laterally -->
+						<div class="fore-card">
+							<br/> 
+						</div>
+						<div class="fore-card">
+							<br/>
+						</div>
+						<div class="fore-card">
+							<br/>
+						</div>
 					</div>
 				</section>
 				<section class="details">
@@ -58,12 +66,12 @@
 					</div>
 					<!-- other infos, each one in a div -->
 					<div id="details-data">
-						<div class="det-card">Sunrise, sunset, light hours (bezier curve)</div>
-						<div class="det-card">Wind comes from, speed</div>
-						<div class="det-card">hPa</div>
-						<div class="det-card">Humidity</div>
-						<div class="det-card">Visibility in km</div>
-						<div class="det-card">Local Hour (GMT), Latitude, Longitude, Coordinates, Height slm</div>
+						<div class="det-card"></div>
+						<div class="det-card"></div>
+						<div class="det-card"></div>
+						<div class="det-card"></div>
+						<div class="det-card"></div>
+						<!--<div class="det-card">Local Hour (GMT), Latitude, Longitude, Height slm</div>-->
 					</div>
 				</section>
 			</section>

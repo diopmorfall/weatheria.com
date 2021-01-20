@@ -74,13 +74,13 @@
     display: flex;
     flex-direction: column;
 }
-.weather-now{
+.current{
     height: 20%;
     border: 2px solid violet;
     display: flex;
     flex-direction: row;
 }
-.weather-now > div{
+.current > div{
     border: 1px dotted violet;
     width: 33.3%;
 }
@@ -109,6 +109,13 @@
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+.not-selected{
+    border-bottom: 1px dotted orange;
+}
+.selected{
+    border: 1px dotted orange;
+    border-bottom: none;
+}
 .fore-selectors > a:hover{
     cursor: pointer;
 }
@@ -120,12 +127,12 @@
 }
 .fore-card{
     position: relative;
-    top: 5%;
-    width: 15%;
-    height: 90%;
+    top: 11%;
+    width: 18%;
+    height: 75%;
     border: 1px dotted orange;
     border-radius: 10%;
-    margin-left: 2%;
+    margin-left: 5.5%;
 }
 .details{
     height: 35%;
