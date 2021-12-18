@@ -6,37 +6,50 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<!--<link rel="icon" href="img/icon.ico" type="image/x-icon">-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-		<link rel="stylesheet" href="css/style.css">
+		<!--todo: use your own icons -->
+		<link rel="stylesheet" href="./assets/css/style.css">
 		<title>Weather.com</title>
 	</head>
 	<body>
-		<nav class="nav-custom navbar navbar-expand-lg navbar-light bg-light fixed-top">
+		<nav class="nav-custom">
 			<a class="navbar-brand" href="index.html">Weather.com</a><!-- home potesse essere l'immagine di logo -->
+			<!--todo: search bar comes here after research (still editable) -->
+			<form class="city-input" name="form" action="/">
+				<input type="text" class="search-input" placeholder="Search city" autofocus>
+				<button class="gps-btn" type="button"><i class="material-icons">gps_fixed</i></button>
+				<button class="search-btn" type="submit"><i class="material-icons">search</i></button>
+				<!--todo: use your own svg icons -->
+			</form>
+			<!--todo: svg settings -->
 		</nav>
+
 		<div class="page">
-			<section id="search"><!-- weather image in background -->
-				<h1 class="title"><a href="index.html">Weather.com</a></h1>
+			<section class="homepage"><!--todo: weather image in background -->
+				<h1><a href="index.html">Weatheria</a></h1>
 				<form class="city-input" name="form" action="/">
 					<input type="text" class="search-input" placeholder="Search city" autofocus>
 					<button class="gps-btn" type="button"><i class="material-icons">gps_fixed</i></button>
 					<button class="search-btn" type="submit"><i class="material-icons">search</i></button>
-					<div id="city-suggestions"></div>
-				</form>		
+					<!--todo: use your own svg icons -->
+				</form>
+				<div id="city-suggestions"></div>
+				<!--todo: we should try to do it -->
 			</section>
+
 			<section class="results">
-				<!-- last update hour and day -->
-				<h6 id="query"></h6>
-				<section class="current">
-					<!-- current weather conditions: degrees, max/min/feels like, weather-->
-					<div id="degrees"></div>
-					<div class="degrees-details">
-						<p id="max"></p>
-						<p id="min"></p>
-						<p id="feels-like"></p>
+				<!--? last update hour and day -->
+				<h6 id="query"></h6> 
+				<section class="current"> <!--todo: current-weather -->
+					<div class="degrees-details"> <!--todo: cw-details -->
+						<p id="max" data-search-hour="loco"></p>
+						<p id="min" data-degrees="loco"></p>
+						<p id="feels-like" data-feels-like="loco"></p>
+						<!--todo: since we get data from js, let's try to use the data- attributes -->
 					</div>
-					<div id="weather"></div>
+					<!--todo: svg weather icon, flex space between -->
 				</section>
+
+				<!--todo: I think this will show up dynamically, maybe making disappear the home page (?)-->
 				<section class="forecasts">
 					<!-- weather forecasts for the next hours/days -->
 					<div class="fore-selectors">
@@ -44,6 +57,7 @@
 						<a class="not-selected">Next Hours</a> <!-- 5 cards for each hour from now -->
 						<a class="not-selected">Next Days</a> <!-- 5 cards for each day from tomorrow -->
 					</div>
+
 					<div class="forecast-data">
 						<div class="fore-card">
 							<br/>
@@ -59,12 +73,15 @@
 						</div>
 					</div>
 				</section>
+
 				<section class="details">
 					<div class="details-heading">
 						<span>More Weather Details</span>
 						<button id="details-btn" type="button"><i class="material-icons">keyboard_arrow_down</i></button>
+						<!--todo: use your own icons -->
 					</div>
 					<!-- other infos, each one in a div -->
+					<!--todo: maybe dynamically generated (?)-->
 					<div id="details-data">
 						<div class="det-card"></div>
 						<div class="det-card"></div>
@@ -76,6 +93,6 @@
 				</section>
 			</section>
 		</div>
-		<script src="dist/main.js" defer></script>
+		<script src="./assets/dist/main.js" defer></script>
 	</body>
 </html>

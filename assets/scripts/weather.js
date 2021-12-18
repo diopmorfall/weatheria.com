@@ -3,7 +3,7 @@
 import { queryUrlBuilder, getData } from "./index";
 import moment from "moment";
 
-const weatherKey = process.env.OWMKEY2;
+const weatherKey = process.env.OWMKEY;
 let url = "https://api.openweathermap.org/data/2.5/onecall?";
 
 export async function getCityWeather(lat, lon) {
