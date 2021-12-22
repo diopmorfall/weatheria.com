@@ -1,7 +1,7 @@
 # Untracked files and directories
-/assets/dist
 /assets/node_modules
-/assets/json
+/assets/dist
+/assets/json/package-lock.json
 /assets/sass
-/assets/env
+/assets/.env
 /ideas

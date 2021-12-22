@@ -3,86 +3,114 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta name="author" content="Mor Fall Diop">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<!--<link rel="icon" href="img/icon.ico" type="image/x-icon">-->
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<!--todo: use your own icons -->
 		<link rel="stylesheet" href="./assets/css/style.css">
-		<title>Weather.com</title>
+		<title>Weatheria</title>
 	</head>
 	<body>
-		<nav class="nav-custom">
-			<a class="navbar-brand" href="index.html">Weather.com</a><!-- home potesse essere l'immagine di logo -->
+		<header>
 			<!--todo: search bar comes here after research (still editable) -->
-			<form class="city-input" name="form" action="/">
-				<input type="text" class="search-input" placeholder="Search city" autofocus>
-				<button class="gps-btn" type="button"><i class="material-icons">gps_fixed</i></button>
-				<button class="search-btn" type="submit"><i class="material-icons">search</i></button>
+			<form class="header-city-form" name="form" action="/">
+				<input type="text" class="city-input" placeholder="Search city" autofocus>
+				<button class="gps-btn" type="button">
+					<img class="icon" src="./assets/img/icons/location.svg" alt="Location">
+				</button>
+				<button class="search-btn" type="submit">
+					<img class="icon" src="./assets/img/icons/search.svg" alt="Search">
+				</button>
 				<!--todo: use your own svg icons -->
 			</form>
-			<!--todo: svg settings -->
-		</nav>
+			<img class="icon" src="./assets/img/icons/settings.svg" alt="Settings">
+		</header>
 
 		<div class="page">
+			<!--todo: settings -->
+			<div class="settings">
+				<div class="settings-heading">
+					<h3>SETTINGS</h3>
+					<img src="./assets/img/icons/close-icon.svg" alt="" srcset="">
+				</div>
+				<div class="option">
+					<h5>Temperature:</h5>
+					<button>°C</button>
+					<button>°F</button>
+				</div>
+				<div class="option">
+					<h5>Wind speed:</h5>
+					<button>km/h</button>
+					<button>mph</button>
+				</div>
+			</div>
 			<section class="homepage"><!--todo: weather image in background -->
-				<h1><a href="index.html">Weatheria</a></h1>
-				<form class="city-input" name="form" action="/">
+				<h1><a class="brand" href="index.html">weatheria</a></h1>
+				<form class="home-form" name="form" action="/">
 					<input type="text" class="search-input" placeholder="Search city" autofocus>
-					<button class="gps-btn" type="button"><i class="material-icons">gps_fixed</i></button>
-					<button class="search-btn" type="submit"><i class="material-icons">search</i></button>
-					<!--todo: use your own svg icons -->
+					<button class="gps-btn" type="button">
+						<img class="icon" src="./assets/img/icons/location.svg" alt="Location">
+					</button>
+					<button class="search-btn" type="submit">
+						<img class="icon" src="./assets/img/icons/search.svg" alt="Search">
+					</button>
 				</form>
-				<div id="city-suggestions"></div>
-				<!--todo: we should try to do it -->
+				<div class="suggestions">
+					<!--todo: we should try to do it, city suggestion when the user stops typing -->
+				</div>
 			</section>
-
-			<section class="results">
+			<!-- todo: when the search is done, let's hide the homepage and show the results -->
+			<main id="results">
 				<!--? last update hour and day -->
 				<h6 id="query"></h6> 
-				<section class="current"> <!--todo: current-weather -->
+				<section class="current-weather">
 					<div class="degrees-details"> <!--todo: cw-details -->
-						<p id="max" data-search-hour="loco"></p>
-						<p id="min" data-degrees="loco"></p>
-						<p id="feels-like" data-feels-like="loco"></p>
+						<p data-search-hour="loco">as of 16:46 GMT</p>
+						<p data-degrees="loco">7°C</p>
+						<p data-feels-like="loco">feels like 2°C</p>
 						<!--todo: since we get data from js, let's try to use the data- attributes -->
 					</div>
-					<!--todo: svg weather icon, flex space between -->
+					<div class="weather-details">
+						<img src="./assets/img/icons/weather/clear-sky-moon.svg" alt="" srcset="">
+						<p class="weather">Clear</p>
+					</div>
 				</section>
 
 				<!--todo: I think this will show up dynamically, maybe making disappear the home page (?)-->
 				<section class="forecasts">
 					<!-- weather forecasts for the next hours/days -->
-					<div class="fore-selectors">
-						<a class="selected">Today</a> <!-- 4 cards (morning, afternoon, evening, night) -->
-						<a class="not-selected">Next Hours</a> <!-- 5 cards for each hour from now -->
-						<a class="not-selected">Next Days</a> <!-- 5 cards for each day from tomorrow -->
+					<div class="time-selectors">
+						<button class="time-option">today</button> <!-- 4 cards (morning, afternoon, evening, night) -->
+						<button class="time-option">next hours</button> <!-- 5 cards for each hour from now -->
+						<button class="time-option">next days</button> <!-- 5 cards for each day from tomorrow -->
 					</div>
 
 					<div class="forecast-data">
-						<div class="fore-card">
-							<br/>
+						<div class="data-card">
+							
 						</div> <!-- always shown, only the data changes. Mobile must be scrollable laterally -->
-						<div class="fore-card">
-							<br/> 
+						<div class="data-card">
+							
 						</div>
-						<div class="fore-card">
-							<br/>
+						<div class="data-card">
+							
 						</div>
-						<div class="fore-card">
-							<br/>
+						<div class="data-card">
+							
 						</div>
 					</div>
 				</section>
 
 				<section class="details">
 					<div class="details-heading">
-						<span>More Weather Details</span>
-						<button id="details-btn" type="button"><i class="material-icons">keyboard_arrow_down</i></button>
-						<!--todo: use your own icons -->
+						<h3>other details</h3>
+						<button id="details-btn" class="details-btn">
+							<img src="./assets/img/icons/arrow-icon.svg">
+						</button>
 					</div>
 					<!-- other infos, each one in a div -->
 					<!--todo: maybe dynamically generated (?)-->
-					<div id="details-data">
+					<div id="details-data" class="details-data">
 						<div class="det-card"></div>
 						<div class="det-card"></div>
 						<div class="det-card"></div>
@@ -91,8 +119,8 @@
 						<!--<div class="det-card">Local Hour (GMT), Latitude, Longitude, Height slm</div>-->
 					</div>
 				</section>
-			</section>
+			</main>
 		</div>
-		<script src="./assets/dist/main.js" defer></script>
+		<!--<script src="./assets/dist/main.js" defer></script>-->
 	</body>
 </html>
