@@ -1,4 +1,4 @@
-.flex, .flex-column, .flex-column-space-around, .page, .settings, main, .degrees-details, .weather-details, .data-card, .details-data, body, .homepage, .forecasts, .details, .flex-row, .flex-row-space-around, header, .time-selectors, form, .settings-heading, .option, .home-form, .current-weather, .forecast-data, .details-heading {
+.flex, .flex-column, .flex-column-space-around, .page, .settings, main, .degrees-details, .weather-details, .data-card, .details-data, body, .homepage, .forecasts, .details, .flex-row, .flex-row-space-around, form, header, .time-selectors, .settings-heading, .option, .home-form, .current-weather, .forecast-data, .details-heading {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
@@ -9,7 +9,7 @@
       -ms-flex-direction: column;
           flex-direction: column; }
 
-.flex-row, .flex-row-space-around, header, .time-selectors, form, .settings-heading, .option, .home-form, .current-weather, .forecast-data, .details-heading {
+.flex-row, .flex-row-space-around, form, header, .time-selectors, .settings-heading, .option, .home-form, .current-weather, .forecast-data, .details-heading {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -19,7 +19,7 @@
   -ms-flex-pack: distribute;
       justify-content: space-around; }
 
-.flex-row-space-around, header, .time-selectors {
+.flex-row-space-around, form, header, .time-selectors {
   -ms-flex-pack: distribute;
       justify-content: space-around; }
 
@@ -27,8 +27,6 @@ section {
   margin-bottom: 50px; }
 
 form {
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -80,7 +78,8 @@ header {
 
 .header-city-form {
   width: 65%;
-  height: 65%; }
+  height: 65%;
+  opacity: 0; }
 
 .page {
   position: relative;
@@ -153,6 +152,9 @@ h1 {
   margin: 0 auto;
   border-radius: 20px;
   border: 2px solid navy; }
+
+main {
+  border: 3px solid green; }
 
 .current-weather {
   height: 110px;
@@ -235,8 +237,7 @@ h1 {
     width: 30px; }
 
 .details-data {
-  margin-top: 30px;
-  display: none; }
+  margin-top: 30px; }
 
 .det-card {
   width: 100%;
@@ -271,3 +272,55 @@ h1 {
     height: 150px; }
   .current-weather {
     padding-left: 30px; } }
+
+@media only screen and (min-width: 600px) and (max-width: 949px) {
+  .page {
+    width: 75%; }
+  .settings {
+    width: 70%;
+    height: 250px;
+    left: 15%; }
+  .settings-heading h3 {
+    margin-left: 42%; }
+  .brand {
+    font-size: 30px; }
+  .home-form, .suggestions {
+    width: 80%; }
+  main {
+    width: 80%;
+    margin: auto; }
+  .current-weather {
+    padding-left: 30px; } }
+
+@media only screen and (min-width: 950px) {
+  header {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    padding: 0 50px; }
+  .header-city-form {
+    width: 40%;
+    height: 65%; }
+  .page {
+    width: 80%; }
+  .settings {
+    top: 20vh;
+    width: 70%;
+    height: 250px;
+    left: 15%; }
+  .settings-heading h3 {
+    margin-left: 45%; }
+  .home-form, .suggestions {
+    width: 70%; }
+    .home-form input, .suggestions input {
+      width: 60%; }
+    .home-form button, .suggestions button {
+      width: 50px;
+      height: 90%; }
+  main {
+    width: 80%;
+    margin: auto;
+    font-size: 24px; }
+  .current-weather {
+    -ms-flex-pack: distribute;
+        justify-content: space-around; } }
