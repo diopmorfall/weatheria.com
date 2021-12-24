@@ -14,11 +14,11 @@
 		<header>
 			<!--todo: search bar comes here after research (still editable) -->
 			<form class="header-city-form" name="form" action="/">
-				<input type="text" class="city-input" placeholder="Search city" autofocus>
-				<button class="gps-btn" type="button">
+				<input type="text" class="city-input" placeholder="Search city" disabled>
+				<button class="gps-btn" type="button" disabled>
 					<img class="icon" src="./assets/img/icons/location.svg" alt="Location">
 				</button>
-				<button class="search-btn" type="submit">
+				<button class="search-btn" type="submit" disabled>
 					<img class="icon" src="./assets/img/icons/search.svg" alt="Search">
 				</button>
 				<!--todo: use your own svg icons -->
@@ -45,7 +45,7 @@
 				</div>
 			</div>
 			<section class="homepage"><!--todo: weather image in background -->
-				<p>the best weather website in the world</p>
+				<p>the best weather website</p>
 				<h1><a class="brand" href="index.html">weatheria</a></h1>
 				<form class="home-form" name="form" action="/">
 					<input type="text" class="search-input" placeholder="Search city" autofocus>
@@ -67,7 +67,7 @@
 				<section class="current-weather">
 					<div class="degrees-details"> <!--todo: cw-details -->
 						<p data-search-hour="loco">as of 16:46 GMT</p>
-						<p data-degrees="loco">7°C</p>
+						<p data-degrees="loco">7 °C</p>
 						<p data-feels-like="loco">feels like 2°C</p>
 						<!--todo: since we get data from js, let's try to use the data- attributes -->
 					</div>
