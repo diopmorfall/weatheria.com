@@ -1,3 +1,21 @@
+@font-face {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  src: url("/assets/font/Segoe UI Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 400; }
+
+@font-face {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  src: url("/assets/font/Segoe UI Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 600; }
+
+@font-face {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  src: url("/assets/font/Segoe UI Bold Italic.woff") format("woff");
+  font-style: italic;
+  font-weight: 600; }
+
 .flex, .flex-column, .flex-column-space-around, .page, .settings, main, .degrees-details, .weather-details, .data-card, .details-data, .desktop-row, body, .homepage, .forecasts, .details, .flex-row, .flex-row-space-around, form, header, .option, .time-selectors, .settings-heading, .home-form, .current-weather, .forecast-data, .details-heading {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -47,7 +65,9 @@ form {
     border-radius: 20px;
     text-align: center;
     border: none;
-    background: none; }
+    background: none;
+    font-weight: 400;
+    font-style: italic; }
 
 input:focus, button:focus {
   outline: none; }
@@ -61,6 +81,7 @@ input:focus, button:focus {
 
 body {
   width: 100%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-style: italic;
   text-align: center; }
 
@@ -110,7 +131,8 @@ header {
       -ms-flex-pack: justify;
           justify-content: space-between; }
   .settings-heading h3 {
-    margin-left: 35%; }
+    margin-left: 35%;
+    font-weight: 600; }
   .settings-heading img {
     margin-right: 5%;
     width: 30px; }
@@ -122,10 +144,14 @@ header {
   height: 15%;
   width: 90%;
   margin: 0 auto; }
+  .option h5 {
+    font-weight: 600; }
   .option button {
     width: 20%;
     height: 100%;
     border-radius: 20px;
+    font-style: italic;
+    font-weight: 600;
     background: none;
     border: none; }
     .option button:first-of-type {
@@ -134,7 +160,8 @@ header {
 .homepage {
   height: 90vh; }
   .homepage p {
-    font-size: 20px;
+    font-size: 18px;
+    font-weight: 400;
     margin-top: 100px; }
 
 h1 {
@@ -143,6 +170,7 @@ h1 {
 
 .brand {
   font-size: 36px;
+  font-weight: 400;
   color: black;
   text-decoration: none; }
   .brand:hover, .brand:active {
@@ -172,10 +200,11 @@ main {
 
 .degrees-details {
   width: 70%;
-  text-align: left; }
+  text-align: left;
+  font-weight: 400; }
   .degrees-details p:nth-of-type(2) {
     font-size: 22px;
-    font-weight: bold; }
+    font-weight: 600; }
 
 .weather-details {
   margin: auto;
@@ -183,7 +212,7 @@ main {
   .weather-details img {
     height: 50%; }
   .weather-details p {
-    font-weight: bold; }
+    font-weight: 600; }
 
 .forecasts {
   height: 400px;
@@ -201,6 +230,7 @@ main {
   height: 35%;
   margin: auto;
   font-size: 17px;
+  font-weight: 400;
   background: none;
   border: none;
   border-radius: 20px;
@@ -232,6 +262,8 @@ main {
       -ms-flex-align: center;
           align-items: center;
   margin-bottom: 25px; }
+  .details-heading h3 {
+    font-weight: 600; }
 
 .details-btn {
   width: 10%;
@@ -365,16 +397,19 @@ main {
     width: 85%; }
   .settings {
     top: 25vh;
-    width: 50%;
+    width: 40%;
     height: 300px;
-    left: 25%; }
+    left: 30%; }
   .settings-heading h3 {
-    margin-left: 38%;
+    margin-left: 45%;
     font-size: 24px; }
+  .option h5 {
+    font-size: 20px; }
   .option button {
-    border-radius: 40px; }
+    border-radius: 40px;
+    font-size: 18px; }
   .homepage {
-    height: 75vh; }
+    height: 80vh; }
     .homepage p {
       font-size: 26px; }
   h1 {
@@ -386,7 +421,7 @@ main {
     border-radius: 40px; }
   .home-form {
     height: 50px;
-    margin-bottom: 60px; }
+    margin-bottom: 40px; }
     .home-form input {
       width: 60%;
       font-size: 24px; }
