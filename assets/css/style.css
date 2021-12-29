@@ -16,12 +16,12 @@
   font-style: italic;
   font-weight: 600; }
 
-.flex, .flex-column, .flex-column-space-around, .page, .settings, main, .degrees-details, .weather-details, .data-card, .details-data, .desktop-row, body, .homepage, .forecasts, .details, .flex-row, .flex-row-space-around, form, header, .option, .time-selectors, .settings-heading, .home-form, .current-weather, .forecast-data, .details-heading {
+.flex, .flex-column, .flex-column-space-around, .page, .settings, main, .cw-details, .weather-details, .data-card, .details-data, .desktop-row, body, .homepage, .forecasts, .details, .flex-row, .flex-row-space-around, form, header, .option, .time-selectors, .settings-heading, .home-form, .current-weather, .forecast-data, .details-heading {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
 
-.flex-column, .flex-column-space-around, .page, .settings, main, .degrees-details, .weather-details, .data-card, .details-data, .desktop-row, body, .homepage, .forecasts, .details {
+.flex-column, .flex-column-space-around, .page, .settings, main, .cw-details, .weather-details, .data-card, .details-data, .desktop-row, body, .homepage, .forecasts, .details {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -33,7 +33,7 @@
       -ms-flex-direction: row;
           flex-direction: row; }
 
-.flex-column-space-around, .page, .settings, main, .degrees-details, .weather-details, .data-card, .details-data, .desktop-row {
+.flex-column-space-around, .page, .settings, main, .cw-details, .weather-details, .data-card, .details-data, .desktop-row {
   -ms-flex-pack: distribute;
       justify-content: space-around; }
 
@@ -81,9 +81,14 @@ input:focus, button:focus {
 
 body {
   width: 100%;
+  height: 100vh;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-style: italic;
-  text-align: center; }
+  text-align: center;
+  background-image: url("/assets/img/mobile/home-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: left;
+  background-size: cover; }
 
 header {
   width: 100%;
@@ -93,7 +98,7 @@ header {
           align-items: center;
   z-index: 1;
   position: fixed;
-  background-color: darkkhaki; }
+  background-color: transparent; }
   header img {
     height: 20px; }
 
@@ -109,10 +114,8 @@ header {
 
 .page {
   position: relative;
-  top: 50px;
   width: 85%;
-  margin: auto;
-  border: 2px solid red; }
+  margin: auto; }
 
 .settings {
   position: fixed;
@@ -165,18 +168,19 @@ header {
     text-decoration: none; }
 
 .homepage {
-  height: 90vh; }
+  height: 90vh;
+  margin-bottom: 0; }
   .homepage p {
     font-size: 18px;
     font-weight: 400;
-    margin-top: 120px; }
+    margin-top: 110px; }
 
 h1 {
   width: auto;
-  margin: 40px auto 0 auto; }
+  margin: 25px auto 0 auto; }
 
 .brand {
-  font-size: 36px;
+  font-size: 38px;
   font-weight: 400;
   color: black;
   text-decoration: none; }
@@ -184,7 +188,8 @@ h1 {
     text-decoration: none; }
 
 .home-form, .suggestions {
-  width: 85%; }
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.45); }
 
 .home-form {
   height: 40px;
@@ -199,7 +204,8 @@ h1 {
   border: 2px solid navy; }
 
 main {
-  border: 3px solid green; }
+  border: 3px solid green;
+  display: none; }
 
 .current-weather {
   height: 120px;
@@ -208,11 +214,11 @@ main {
   border: 2px solid violet;
   margin-bottom: 20px; }
 
-.degrees-details {
+.cw-details {
   width: 70%;
   text-align: left;
   font-weight: 400; }
-  .degrees-details p:nth-of-type(2) {
+  .cw-details p:nth-of-type(2) {
     font-size: 22px;
     font-weight: 600; }
 
@@ -327,9 +333,9 @@ main {
   .current-weather {
     height: 180px;
     padding-left: 30px; }
-  .degrees-details {
+  .cw-details {
     font-size: 22px; }
-    .degrees-details p:nth-of-type(2) {
+    .cw-details p:nth-of-type(2) {
       font-size: 36px; }
   .weather-details p {
     font-size: 26px; }
@@ -376,9 +382,10 @@ main {
       margin-top: 20px;
       font-size: 16px; }
   h1 {
-    margin-top: 25px; }
+    margin-top: 10px;
+    margin-bottom: 10px; }
     h1 a {
-      font-size: 36px !important; }
+      font-size: 38px !important; }
   .home-form, .suggestions {
     width: 85%; }
   .home-form {
@@ -395,9 +402,9 @@ main {
   .current-weather {
     height: 130px;
     padding-left: 30px; }
-  .degrees-details {
+  .cw-details {
     font-size: 17px; }
-    .degrees-details p:nth-of-type(2) {
+    .cw-details p:nth-of-type(2) {
       font-size: 26px; }
   .weather-details p {
     font-size: 20px; }
@@ -432,8 +439,6 @@ main {
     font-size: 22px; }
   .header-city-form button {
     width: 50px; }
-  .page {
-    top: 70px; }
   .settings {
     top: 25vh;
     width: 40%;
@@ -455,7 +460,7 @@ main {
   h1 {
     margin-bottom: 20px; }
   .brand {
-    font-size: 60px; }
+    font-size: 80px; }
   .home-form, .suggestions {
     border-radius: 40px; }
   .home-form {
@@ -465,8 +470,8 @@ main {
       width: 60%;
       font-size: 24px; }
     .home-form button {
-      width: 60px;
-      height: 90%; }
+      width: 65px;
+      height: 95%; }
   .suggestions {
     height: 350px; }
   main {
@@ -478,10 +483,10 @@ main {
     height: 250px;
     -ms-flex-pack: distribute;
         justify-content: space-around; }
-  .degrees-details {
+  .cw-details {
     width: 50%;
     font-size: 28px; }
-    .degrees-details p:nth-of-type(2) {
+    .cw-details p:nth-of-type(2) {
       font-size: 50px; }
   .weather-details {
     margin: initial; }
