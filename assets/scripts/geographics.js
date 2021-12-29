@@ -31,6 +31,7 @@ async function getCityFromCoordinates(lat, lon) {
     fetch(queryUrlBuilder(url, query))
     .then(response => response.json())
     .then(data => {
+        //todo: shall we make our own city object ?
         let results = data.results[0].components;
         //console.log(data.results[0].annotations.timezone);
         let city = results.city;
@@ -63,7 +64,7 @@ export async function getInputCoordinates(input) {
 
 // how to filter each result ? City and type fields in array response
 
-function resultsFilter(data, input) {
+function resultsFilter(data, input) { //todo:; this will be replaced by the suggestion box I think
     let results = data.results;
     let category, city, country, formatted, lat, lon;
     //console.log(data.results[0].annotations.timezone);

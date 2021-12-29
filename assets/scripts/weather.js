@@ -73,6 +73,7 @@ let forecastData = [
 function pushData(daySections, temperatures, feels_like) { // filling the array dynamically
     
     for(let i = 0; i < 4; i++) { 
+        //todo: if I keep it, format it with this string type ``
         forecastData[0].push( // today
             "<h6>" + daySections[i] + "</h6>" +
             "<br/>Weather: " + daily[0].weather[0].main +

@@ -1,21 +1,7 @@
+//todo: this should only import all and do very little things; used as the entry point
+
 import moment from "moment";
 import { getInputCoordinates, getUsersGeolocation } from "./geographics";
-
-// weatherElements
-
-const form = document.querySelector(".city-input");
-const gpsButton = document.querySelector(".gps-btn");
-const inputField = document.querySelector(".search-input");
-const queryOutputElement = document.getElementById("query");
-const currentWeather = document.querySelector(".current");
-const degreesDetails = currentWeather.children[1];
-const cardSelectors = document.querySelector(".fore-selectors").children;
-let selectorsFlags = [true, false, false]; // to flag which selector is selected, 0 by default
-const forecastCards = document.querySelectorAll(".fore-card");
-const detailButton = document.getElementById("details-btn");
-const detailIconButton = detailButton.firstElementChild;
-const detailsContainer = document.getElementById("details-data");
-const detailsCards = document.querySelectorAll(".det-card");
 
 // assigning the event listeners
 
