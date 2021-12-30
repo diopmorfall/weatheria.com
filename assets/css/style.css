@@ -57,7 +57,7 @@ form {
     height: 70%;
     border: none; }
     form button img {
-      height: 100%; }
+      height: 90%; }
   form input {
     width: 70%;
     height: 80%;
@@ -90,6 +90,9 @@ body {
   background-position: left;
   background-size: cover; }
 
+form {
+  border: none; }
+
 header {
   width: 100%;
   height: 50px;
@@ -102,11 +105,11 @@ header {
   header img {
     height: 20px; }
 
-.header-city-form {
+.header-form {
   width: 65%;
   height: 65%;
   opacity: 0; }
-  .header-city-form button {
+  .header-form button {
     cursor: initial; }
 
 .search-input {
@@ -187,9 +190,11 @@ h1 {
   .brand:hover, .brand:active {
     text-decoration: none; }
 
-.home-form, .suggestions {
-  width: 90%;
+.home-form, .header-form, .suggestions {
   background-color: rgba(255, 255, 255, 0.45); }
+
+.home-form, .suggestions {
+  width: 90%; }
 
 .home-form {
   height: 40px;
@@ -304,7 +309,7 @@ main {
     height: 25px; }
   form button {
     width: 35px; }
-  .header-city-form input {
+  .header-form input {
     font-size: 19px; }
   .settings {
     width: 60%;
@@ -362,10 +367,10 @@ main {
   .settings-icon {
     position: initial;
     height: 20px; }
-  .header-city-form {
+  .header-form {
     width: 60%;
     height: 60%; }
-    .header-city-form input {
+    .header-form input {
       font-size: 14px; }
   .settings {
     top: 25vh;
@@ -435,9 +440,9 @@ main {
       height: 25px; }
   .settings-icon {
     cursor: pointer; }
-  .header-city-form input {
+  .header-form input {
     font-size: 22px; }
-  .header-city-form button {
+  .header-form button {
     width: 50px; }
   .settings {
     top: 25vh;

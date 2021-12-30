@@ -1,29 +1,43 @@
-//todo: this should only import all and do very little things; used as the entry point
+//todo: this should only import all the files and combine them all; used as the entry point
 
 import moment from "moment";
+
+import { forms, gpsButtons, searchButtons, inputFields } from "./dom-elements";
+
 import { getInputCoordinates, getUsersGeolocation } from "./geographics";
 
-// assigning the event listeners
-
-window.onload = function() {
-    form.addEventListener('submit', function(event) {
+//todo: import elements
+window.onload = function(){
+    //todo: search the city after 1 second that the user stops typing, and provide 5 best suggestions (debounce)
+    forms.forEach(addEventListener('submit', (event) => {
         event.preventDefault();
-        getInputCoordinates(inputField.value);
-    });
+        //getInputCoordinates(inputField.value);
+        console.log(event.target);
+    }));
 
-    gpsButton.addEventListener('click', function(event){
+    searchButtons.forEach(addEventListener("click", (event) => {
         event.preventDefault();
-        getUsersGeolocation();
-    });
+        console.log(event.target);
+        //getInputCoordinates(inputField.value);
+        //todo: submit the parent form no ?
+    }));
+
+    gpsButtons.forEach(
+        addEventListener('click', (event) =>{
+            event.preventDefault();
+            console.log(event.target);
+            //getUsersGeolocation();
+            //todo: getUserLocation()
+    }));
 
     for (let i = 0; i < cardSelectors.length; i++) {
-        cardSelectors[i].addEventListener('click', function(event) {
+        cardSelectors[i].addEventListener('click', (event) => {
             event.preventDefault();
             selectSelector(i);
         });
     }
 
-    detailButton.addEventListener('click', function(event) {
+    detailButton.addEventListener('click', (event) => {
         event.preventDefault();
         detailIconButton.classList.contains("rotated") ? (
             detailsContainer.style.display = "none",
@@ -43,14 +57,10 @@ function searchTime() {
     return "Last update in " + date + " at "+ time + ". GMT "+ moment().format("Z");
 }
 
-export function queryUrlBuilder(url, query) { // function that builds the API url
-    return url + query;
-}
-
 // function that takes the query inserted in the <input>, or the one calculated with geolocation; then it prints it
 
 export function printQuery(input) {
-    return queryOutputElement.innerHTML =  "Weather in " + input + ".<br/><br/>" + searchTime();
+    return queryOutputElement.textContent =  "Weather in " + input + ".<br/><br/>" + searchTime();
 }
 
 function selectSelector(i) {
