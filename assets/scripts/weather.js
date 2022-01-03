@@ -1,6 +1,6 @@
 // script that processes the weather data, which will be exported in index.js in order to create the elements
 
-import { queryUrlBuilder, getData } from "./index";
+import { urlBuilder } from "./tools";
 import moment from "moment";
 
 const weatherKey = process.env.OWMKEY;

@@ -16,7 +16,7 @@
   font-style: italic;
   font-weight: 600; }
 
-.flex, .flex-column, .flex-column-space-around, .page, .settings, main, .cw-details, .weather-details, .data-card, .details-data, .desktop-row, body, .homepage, .forecasts, .details, .flex-row, .flex-row-space-around, form, header, .option, .time-selectors, .settings-heading, .home-form, .current-weather, .forecast-data, .details-heading {
+.flex, .flex-column, .flex-column-space-around, .page, .settings, main, .cw-details, .weather-details, .data-card, .details-data, .desktop-row, body, .homepage, .forecasts, .details, .flex-row, .flex-row-space-around, form, .option, .time-selectors, header, .settings-heading, .home-form, .current-weather, .forecast-data, .details-heading {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
@@ -27,7 +27,7 @@
       -ms-flex-direction: column;
           flex-direction: column; }
 
-.flex-row, .flex-row-space-around, form, header, .option, .time-selectors, .settings-heading, .home-form, .current-weather, .forecast-data, .details-heading {
+.flex-row, .flex-row-space-around, form, .option, .time-selectors, header, .settings-heading, .home-form, .current-weather, .forecast-data, .details-heading {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
@@ -37,7 +37,7 @@
   -ms-flex-pack: distribute;
       justify-content: space-around; }
 
-.flex-row-space-around, form, header, .option, .time-selectors {
+.flex-row-space-around, form, .option, .time-selectors {
   -ms-flex-pack: distribute;
       justify-content: space-around; }
 
@@ -90,30 +90,25 @@ body {
   background-position: left;
   background-size: cover; }
 
-form {
-  border: none; }
-
 header {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
   height: 50px;
+  padding: 0 25px;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   z-index: 1;
   position: fixed;
   background-color: transparent; }
+  header .brand {
+    font-size: 18px;
+    font-weight: 600;
+    opacity: 0; }
   header img {
     height: 20px; }
-
-.header-form {
-  width: 65%;
-  height: 65%;
-  opacity: 0; }
-  .header-form button {
-    cursor: initial; }
-
-.search-input {
-  font-size: 14px; }
 
 .page {
   position: relative;
@@ -190,17 +185,19 @@ h1 {
   .brand:hover, .brand:active {
     text-decoration: none; }
 
-.home-form, .header-form, .suggestions {
-  background-color: rgba(255, 255, 255, 0.45); }
-
 .home-form, .suggestions {
-  width: 90%; }
+  width: 90%;
+  background-color: rgba(255, 255, 255, 0.45); }
 
 .home-form {
   height: 40px;
-  margin: 30px auto 30px auto; }
+  margin: 30px auto 30px auto;
+  border: none; }
   .home-form button {
     width: 35px; }
+
+.search-input {
+  font-size: 14px; }
 
 .suggestions {
   height: 200px;
@@ -304,12 +301,12 @@ main {
   margin-bottom: 30px; }
 
 @media only screen and (min-width: 600px) and (max-width: 950px) {
-  header img {
-    height: 25px; }
-  form button {
-    width: 35px; }
-  .header-form input {
-    font-size: 19px; }
+  header {
+    padding: 10px 50px 0 50px; }
+    header .brand {
+      font-size: 24px; }
+    header img {
+      height: 25px; }
   .settings {
     width: 60%;
     height: 270px;
@@ -362,15 +359,12 @@ main {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding: 0 25px; }
+    padding: 0 50px; }
+    header .brand {
+      font-size: 18px; }
   .settings-icon {
     position: initial;
     height: 20px; }
-  .header-form {
-    width: 60%;
-    height: 60%; }
-    .header-form input {
-      font-size: 14px; }
   .settings {
     top: 25vh;
     width: 50%;
@@ -434,15 +428,13 @@ main {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding: 0 50px; }
+    padding: 15px 100px 0 100px; }
+    header .brand {
+      font-size: 28px; }
     header img {
       height: 25px; }
   .settings-icon {
     cursor: pointer; }
-  .header-form input {
-    font-size: 22px; }
-  .header-form button {
-    width: 50px; }
   .settings {
     top: 25vh;
     width: 40%;

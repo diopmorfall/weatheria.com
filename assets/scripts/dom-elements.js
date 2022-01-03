@@ -1,23 +1,23 @@
+export const headerBrand = document.querySelector("header > .brand");
 export const settingsIcon = document.querySelector(".settings-icon");
-
-export const forms = document.forms;
-export const gpsButtons = document.querySelectorAll(".gps-btn");
-export const searchButtons = document.querySelectorAll(".search-btn");
-export const inputFields = document.querySelectorAll(".search-input");
 
 export const settingsMenu = document.querySelector(".settings");
 //todo: add manageable options for temperature and wind speed
 
 export const citySuggestions = document.querySelector(".suggestions");
 
+export const form = document.forms[0];
+export const inputField = form.children[0];
+export const gpsButton = form.children[1];
+
 export const resultsContainer = document.querySelector("main");
 
-export const queryOutputElement = document.getElementById("query");
-export const currentWeatherSection = document.querySelector(".current-weather");
+//export const queryOutputElement = document.getElementById("query");
+export const currentInfos = document.querySelector(".cw-details");
 //todo: how to manage data- attributes (time of search, degrees and feels like)
 
-export const weatherDetails = currentWeather.children[1];
-export const [weatherIcon, weatherText] = weatherDetails.children;
+export const weatherDetails = document.querySelector(".weather-details");
+export const [weatherIcon, weatherName] = weatherDetails.children;
 
 export const timeSelectors = document.querySelector(".time-selectors").children;
 //todo: let selectorsFlags = [true, false, false]; // to flag which selector is selected, 0 by default

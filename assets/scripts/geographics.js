@@ -1,9 +1,16 @@
-import { printQuery, queryUrlBuilder } from "./index";
+import { urlBuilder, debounceFunction } from "./tools";
 import { getCityWeather, getTimezone } from "./weather";
 
 // script that processes the geographic stuff 
 const geoKey = process.env.GEO_KEY;
 let url = "https://api.opencagedata.com/geocode/v1/json?q=";
+
+export function provideSuggestions(input){
+    console.log(input);
+    //todo: prefetch with suggestions
+}
+
+provideSuggestions = debounceFunction(provideSuggestions, 500);
 
 export function getUsersGeolocation() { // function that obtains the geolocation coordinates of the user
     let position = navigator.geolocation;
@@ -28,7 +35,7 @@ export function getUsersGeolocation() { // function that obtains the geolocation
 
 async function getCityFromCoordinates(lat, lon) {
     let query = lat + "+" + lon + "&key=" + geoKey + "&language=en";
-    fetch(queryUrlBuilder(url, query))
+    fetch(urlBuilder(url, query))
     .then(response => response.json())
     .then(data => {
         //todo: shall we make our own city object ?

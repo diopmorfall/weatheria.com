@@ -1,35 +1,29 @@
 //todo: this should only import all the files and combine them all; used as the entry point
 
 import moment from "moment";
-
-import { forms, gpsButtons, searchButtons, inputFields } from "./dom-elements";
-
-import { getInputCoordinates, getUsersGeolocation } from "./geographics";
+import { form, gpsButton, inputField } from "./dom-elements";
+import { provideSuggestions } from "./geographics";
+//import { getInputCoordinates, getUsersGeolocation } from "./geographics";
 
 //todo: import elements
+
 window.onload = function(){
     //todo: search the city after 1 second that the user stops typing, and provide 5 best suggestions (debounce)
-    forms.forEach(addEventListener('submit', (event) => {
-        event.preventDefault();
-        //getInputCoordinates(inputField.value);
-        console.log(event.target);
-    }));
+    form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        console.log("Submit: ", form.elements[0].value);
+    });
 
-    searchButtons.forEach(addEventListener("click", (event) => {
-        event.preventDefault();
-        console.log(event.target);
-        //getInputCoordinates(inputField.value);
-        //todo: submit the parent form no ?
-    }));
+    gpsButton.addEventListener("click", (e) => {
+        e.preventDefault();
+        //getUsersGeolocation(); //todo: getUserLocation()
+        console.log("gps");
+    });
 
-    gpsButtons.forEach(
-        addEventListener('click', (event) =>{
-            event.preventDefault();
-            console.log(event.target);
-            //getUsersGeolocation();
-            //todo: getUserLocation()
-    }));
+    inputField.addEventListener("input", () => provideSuggestions(inputField.value));
 
+
+    /*
     for (let i = 0; i < cardSelectors.length; i++) {
         cardSelectors[i].addEventListener('click', (event) => {
             event.preventDefault();
@@ -47,6 +41,7 @@ window.onload = function(){
             detailIconButton.classList.add("rotated")
         );
     })
+    */
 };
 
 // function that formats the time of the search with Moment.js library
@@ -63,6 +58,7 @@ export function printQuery(input) {
     return queryOutputElement.textContent =  "Weather in " + input + ".<br/><br/>" + searchTime();
 }
 
+/*
 function selectSelector(i) {
     cardSelectors[i].classList.remove("not-selected");
     cardSelectors[i].classList.add("selected");
@@ -77,6 +73,7 @@ function selectSelector(i) {
     eraseForecastData(i);
 }
 
+
 let selectorIndex;
 
 function eraseForecastData(i) {
@@ -87,6 +84,7 @@ function eraseForecastData(i) {
     //assignValues(forecastData[i], forecastCards); should run here
     selectorIndex = i;
 }
+
 
 export function getData(data, forecastData) {
     let weatherElements = [currentWeather.firstElementChild, currentWeather.lastElementChild];
@@ -107,7 +105,7 @@ function assignValues(source, element) { // assigning each value to each element
         element[i].innerHTML = source[i];
     }
 }
-
+*/
 // creation of weatherElements and animations of the site
 
 // background color based on hour/season/weather
