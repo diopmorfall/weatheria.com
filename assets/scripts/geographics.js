@@ -1,16 +1,45 @@
 import { urlBuilder, debounceFunction } from "./tools";
+import { showCitiesList } from "./animations";
 import { getCityWeather, getTimezone } from "./weather";
 
 // script that processes the geographic stuff 
 const geoKey = process.env.GEO_KEY;
 let url = "https://api.opencagedata.com/geocode/v1/json?q=";
 
-export function provideSuggestions(input){
-    console.log(input);
-    //todo: prefetch with suggestions
+export async function provideSuggestions(input){
+    if(input == "") return;
+
+    //console.log(input);
+    let response = await fetch(url + input.replace(/ /g, "%20") + "&key=" + geoKey + "&language=en");
+    let jsonResponse = await response.json();
+    //todo: fetch function that returns the response
+
+    console.log(jsonResponse);
+
+    let citiesSuggested = [];
+    if(jsonResponse.total_results == 0){
+        console.warn("No results, check if the city is correct");
+        //todo: handle error (maybe a dinamic div ?)
+    }
+    
+    for(let citySuggestion of jsonResponse.results){
+        let cityDescription = citySuggestion?.formatted;
+        let city = citySuggestion.components?.city;
+        let village = citySuggestion.components?.village;
+        let placeType = citySuggestion.components?._type;
+        console.log(citySuggestion);
+
+        let regex = new RegExp(`\\b${input}\\b`, "i");
+
+        if((regex.test(cityDescription)) && (regex.test(city) || regex.test(village)) && (placeType == "city" || placeType == "village"))
+            citiesSuggested.push(cityDescription);
+    }
+    console.log(citiesSuggested);
+
+    showCitiesList(citiesSuggested);
 }
 
-provideSuggestions = debounceFunction(provideSuggestions, 500);
+provideSuggestions = debounceFunction(provideSuggestions, 600);
 
 export function getUsersGeolocation() { // function that obtains the geolocation coordinates of the user
     let position = navigator.geolocation;

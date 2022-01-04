@@ -10,7 +10,7 @@ export async function getCityWeather(lat, lon) {
     let query = "lat=" + lat + "&lon=" + lon + "&units=metric&exclude=minutely&appid=" + weatherKey;
     //console.log(queryUrlBuilder(url, query));
 
-    fetch(queryUrlBuilder(url, query))
+    fetch(urlBuilder(url, query))
     .then(response => response.json())
     .then(data => {
         //console.log(data);

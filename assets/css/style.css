@@ -16,12 +16,12 @@
   font-style: italic;
   font-weight: 600; }
 
-.flex, .flex-column, .flex-column-space-around, .page, .settings, main, .cw-details, .weather-details, .data-card, .details-data, .desktop-row, body, .homepage, .forecasts, .details, .flex-row, .flex-row-space-around, form, .option, .time-selectors, header, .settings-heading, .home-form, .current-weather, .forecast-data, .details-heading {
+.flex, .flex-column, .flex-column-space-around, .page, .settings, .suggestions, main, .cw-details, .weather-details, .data-card, .details-data, .desktop-row, body, .homepage, .forecasts, .details, .flex-row, .flex-row-space-around, form, .option, .time-selectors, header, .settings-heading, .home-form, .current-weather, .forecast-data, .details-heading {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex; }
 
-.flex-column, .flex-column-space-around, .page, .settings, main, .cw-details, .weather-details, .data-card, .details-data, .desktop-row, body, .homepage, .forecasts, .details {
+.flex-column, .flex-column-space-around, .page, .settings, .suggestions, main, .cw-details, .weather-details, .data-card, .details-data, .desktop-row, body, .homepage, .forecasts, .details {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -33,7 +33,7 @@
       -ms-flex-direction: row;
           flex-direction: row; }
 
-.flex-column-space-around, .page, .settings, main, .cw-details, .weather-details, .data-card, .details-data, .desktop-row {
+.flex-column-space-around, .page, .settings, .suggestions, main, .cw-details, .weather-details, .data-card, .details-data, .desktop-row {
   -ms-flex-pack: distribute;
       justify-content: space-around; }
 
@@ -200,9 +200,16 @@ h1 {
   font-size: 14px; }
 
 .suggestions {
-  height: 200px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
   margin: 0 auto;
-  border-radius: 20px; }
+  border-radius: 20px;
+  opacity: 0; }
+
+.city-option {
+  font-size: 14px;
+  margin: 20px 0; }
 
 main {
   border: 3px solid green;
@@ -329,7 +336,6 @@ main {
     .home-form input {
       font-size: 20px; }
   .suggestions {
-    height: 250px;
     margin-top: 25px; }
   .current-weather {
     height: 180px;
@@ -395,7 +401,6 @@ main {
     .home-form input {
       font-size: 14px; }
   .suggestions {
-    height: 160px;
     margin-top: 5px; }
   .current-weather {
     height: 130px;
@@ -421,8 +426,6 @@ main {
     height: 120px; } }
 
 @media only screen and (min-width: 950px) {
-  form button {
-    cursor: pointer; }
   header {
     height: 70px;
     -webkit-box-pack: justify;
@@ -467,9 +470,14 @@ main {
       font-size: 24px; }
     .home-form button {
       width: 65px;
-      height: 95%; }
+      height: 95%;
+      cursor: pointer; }
   .suggestions {
-    height: 350px; }
+    min-height: 200px; }
+  .city-option {
+    margin: 0;
+    height: 20px;
+    border: 2px solid red; }
   main {
     width: 90%;
     margin: auto; }

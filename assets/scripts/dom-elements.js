@@ -5,6 +5,7 @@ export const settingsMenu = document.querySelector(".settings");
 //todo: add manageable options for temperature and wind speed
 
 export const citySuggestions = document.querySelector(".suggestions");
+export const cityOptions = document.querySelectorAll(".city-option");
 
 export const form = document.forms[0];
 export const inputField = form.children[0];
